@@ -48,7 +48,10 @@ corporate_domains = list(corporate_domains)
 # 7. Проверьте что в списке личных и корпоративных доменов нет пересечений:
 # ни один домен не должен входить в оба списка одновременно.
 
-crossing = set(personal_domains) & set(corporate_domains)
+if set(personal_domains) & set(corporate_domains):
+    print(set(personal_domains) & set(corporate_domains))
+else:
+    print('Пересечений нет')
 
 # 8. Проверьте «корпоративность» отправителя: создайте булеву переменную is_corporate, равную результату проверки
 # вхождения домена отправителя в список корпоративных доменов.
@@ -84,7 +87,7 @@ is_body_empty = not email['body']
 
 email["masked_from"] = login[:2] + "***@" + domain
 
-#14. Удалите из списка личных доменов значения "list.ru" и "bk.ru"
+# 14. Удалите из списка личных доменов значения "list.ru" и "bk.ru"
 personal_domains.remove("list.ru")
 personal_domains.remove("bk.ru")
 
